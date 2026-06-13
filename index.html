@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Music Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CodeAlpha AI Task</p>
+        <h1>AI Music Generator</h1>
+        <p>Create short MIDI melodies with controllable mood, tempo, scale, and length.</p>
+      </div>
+      <div class="visualizer" aria-label="Generated melody visualization">
+        <canvas id="pianoRoll" width="900" height="360"></canvas>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Music generation controls">
+      <label>
+        <span>Mood</span>
+        <select id="mood">
+          <option value="bright">Bright</option>
+          <option value="calm">Calm</option>
+          <option value="dramatic">Dramatic</option>
+          <option value="dreamy">Dreamy</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Scale</span>
+        <select id="scale">
+          <option value="major">Major</option>
+          <option value="minor">Minor</option>
+          <option value="pentatonic">Pentatonic</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Tempo</span>
+        <input id="tempo" type="range" min="70" max="160" value="110">
+        <strong id="tempoValue">110 BPM</strong>
+      </label>
+
+      <label>
+        <span>Notes</span>
+        <input id="noteCount" type="range" min="24" max="96" step="8" value="48">
+        <strong id="noteValue">48</strong>
+      </label>
+    </section>
+
+    <section class="actions" aria-label="Actions">
+      <button id="generateBtn" type="button">Generate</button>
+      <button id="playBtn" type="button">Play</button>
+      <button id="downloadBtn" type="button">Download MIDI</button>
+    </section>
+
+    <section class="sequence-panel" aria-label="Generated note sequence">
+      <div class="panel-header">
+        <h2>Generated Sequence</h2>
+        <span id="status">Ready</span>
+      </div>
+      <div id="sequence" class="sequence"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
